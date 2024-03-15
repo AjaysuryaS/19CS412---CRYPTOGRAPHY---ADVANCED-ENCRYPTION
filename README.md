@@ -36,8 +36,9 @@ public class RSAEncryption {
         Scanner scanner = new Scanner(System.in);
 
         // Choose two prime numbers (p and q)
-        System.out.print("Enter two prime numbers: ");
+        System.out.print("Enter the first prime number (p): ");
         int p = scanner.nextInt();
+        System.out.print("Enter the second prime number (q): ");
         int q = scanner.nextInt();
         // Calculate n = p * q
         n[0] = p * q;
@@ -77,29 +78,30 @@ public class RSAEncryption {
     }
 
     public static void main(String[] args) {
-        int n = 0, e = 0, d = 0;
+        int[] n = new int[1];
+        int[] e = new int[1];
+        int[] d = new int[1];
         int plaintext;
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter plaintext: ");
         plaintext = scanner.nextInt();
 
-        generateRSAKeys(new int[]{0}, new int[]{0}, new int[]{0});
+        generateRSAKeys(n, e, d);
 
         System.out.println("Original message: " + plaintext);
-        int ciphertext = encrypt(plaintext, e, n);
+        int ciphertext = encrypt(plaintext, e[0], n[0]);
         System.out.println("Encrypted message: " + ciphertext);
-        int decryptedMessage = decrypt(ciphertext, d, n);
+        int decryptedMessage = decrypt(ciphertext, d[0], n[0]);
         System.out.println("Decrypted message: " + decryptedMessage);
 
         scanner.close();
     }
 }
 
-
 ```
 ## OUTPUT:
-![Screenshot 2024-03-05 113517](https://github.com/AlluguriSrikrishnateja/19CS412---CRYPTOGRAPHY---ADVANCED-ENCRYPTION/assets/118343892/b96f8704-db74-4fb0-835d-078d58644625)
+![Screenshot 2024-03-15 142153](https://github.com/AjaysuryaS/19CS412---CRYPTOGRAPHY---ADVANCED-ENCRYPTION/assets/114158396/fc47eb13-ee6d-4f4a-972d-4c51b927f2ba)
 
 
 ## RESULT :
