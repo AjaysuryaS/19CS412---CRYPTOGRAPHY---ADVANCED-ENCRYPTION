@@ -200,21 +200,24 @@ same process for the remaining plain text characters.
 ### PROGRAM :
 
 ```
-from cryptography.fernet import Fernet
-message = input()
-key = Fernet.generate_key()
-fernet = Fernet(key)
-encMessage = fernet.encrypt(message.encode())
-print("original string: ", message)
-print("encrypted string: ", encMessage)
-
-decMessage = fernet.decrypt(encMessage).decode()
- 
-print("decrypted string: ", decMessage)
+ class DiffieHellman {
+    public static void main(String args[]) {
+        int p = 23; /* publicly known (prime number) */ int g = 5; /* publicly known (primitive root) */ int x = 4; /* only Alice knows this secret */
+        int y = 3; /* only Bob knows this secret */ double aliceSends = (Math.pow(g, x)) % p;
+        double bobComputes = (Math.pow(aliceSends, y)) % p; double bobSends = (Math.pow(g, y)) % p;
+        double aliceComputes = (Math.pow(bobSends, x)) % p; double sharedSecret = (Math.pow(g, (x * y))) % p;
+        System.out.println("simulation of Diffie-Hellman key exchange algorithm\n--");
+                System.out.println("Alice Sends : " + aliceSends); System.out.println("Bob Computes : " + bobComputes); System.out.println("Bob Sends : " + bobSends); System.out.println("Alice Computes : " + aliceComputes); System.out.println("Shared Secret : " + sharedSecret);
+                if ((aliceComputes == sharedSecret) && (aliceComputes == bobComputes)) System.out.println("Success: Shared Secrets Matches! " + sharedSecret);
+        else
+            System.out.println("Error: Shared Secrets does not Match");
+    }
+}
 ```
 ## OUTPUT:
 
-<img width="756" alt="image" src="https://github.com/AlluguriSrikrishnateja/19CS412---CRYPTOGRAPHY---ADVANCED-ENCRYPTION/assets/118343892/23e74c08-7cea-4381-b9fe-97e247b17470">
+![Screenshot 2024-03-15 135629](https://github.com/AjaysuryaS/19CS412---CRYPTOGRAPHY---ADVANCED-ENCRYPTION/assets/114158396/0a5e1cb1-ca5c-4ff3-a562-37c5e6377e6c)
+
 
 ## RESULT:
 
